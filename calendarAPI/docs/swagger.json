@@ -1,0 +1,41 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger API.",
+        "title": "Swagger Demo",
+        "contact": {
+            "name": "Hanks Tsai",
+            "url": "https://github.com/HanksJCTsai"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/hello": {
+            "get": {
+                "produces": [
+                    "text/plain"
+                ],
+                "tags": [
+                    "Hello"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "user name",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
