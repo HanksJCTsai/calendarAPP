@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  calendarapi:
+    build:
+      context: .
+      dockerfile: ./calendarAPI/Dockerfile
+    working_dir: /app
+    volumes:
+      - .:/server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - calendarapidb
+    entrypoint: ./main
+    restart: always
+  
+  calendarapidb:
+    image: postgres:12.4-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=mysecretpassword
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
